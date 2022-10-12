@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B91BD1BE-1AE2-4372-8CC5-E85773C60DF6}</ProjectGuid>
+    <ProjectGuid>{A861E03E-6F80-4A95-98FB-1EA6916FCCB3}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>LKY_Coordinate_Conversion</RootNamespace>
-    <AssemblyName>LKY_Coordinate_Conversion</AssemblyName>
+    <RootNamespace>LKY_Calculate_Satellite_Position</RootNamespace>
+    <AssemblyName>LKY_Calculate_Satellite_Position</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,14 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Coordinate_Conversion.cs" />
+    <Compile Include="Calculate_Satellite_Position.cs" />
+    <Compile Include="Common\Log.cs" />
+    <Compile Include="Lib\lib_CoordinateOS.cs" />
+    <Compile Include="Lib\lib_OrbitalFormula.cs" />
+    <Compile Include="Lib\lib_RinexOS.cs" />
+    <Compile Include="Lib\lib_TimeCovert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Attachments\brdc2750.22n">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="lky_logo.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

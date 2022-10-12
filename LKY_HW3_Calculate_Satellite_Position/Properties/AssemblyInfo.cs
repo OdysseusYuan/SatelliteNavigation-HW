@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("LKY_HW1_Time_Convert")]
+[assembly: AssemblyTitle("LKY_Calculate_Satellite_Position")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LKY_HW1_Time_Convert")]
+[assembly: AssemblyProduct("LKY_Calculate_Satellite_Position")]
 [assembly: AssemblyCopyright("Copyright © liukaiyuan@sjtu.edu.cn 2022.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("d64d2272-f16d-4277-9184-e5aedabca1bb")]
+[assembly: Guid("a861e03e-6f80-4a95-98fb-1ea6916fccb3")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

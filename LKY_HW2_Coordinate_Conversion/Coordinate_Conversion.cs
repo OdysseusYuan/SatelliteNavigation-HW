@@ -1,13 +1,13 @@
 ﻿/*
  *      [Principle of Navigation] Copyright (C) 2022 SJTU Inc.
  *      
- *      FileName : Coordinate Conversion
- *      Developer: liukaiyuan (Odysseus.Yuan)
+ *      FileName : Coordinate_Conversion.cs
+ *      Developer: liukaiyuan@sjtu.edu.cn (Odysseus.Yuan)
  */
 
 using System;
 
-namespace Coordinate_Conversion_LKY
+namespace LKY_Coordinate_Conversion
 {
     internal class Coordinate_Conversion
     {
@@ -15,7 +15,7 @@ namespace Coordinate_Conversion_LKY
         {
             //欢迎话术
             Console.WriteLine("******** Homework #2: Coordinate Conversion  ********");
-            Console.WriteLine("******** Developer: Liu Kaiyuan              ********");
+            Console.WriteLine("******** Developer: liukaiyuan@sjtu.edu.cn   ********");
             Console.WriteLine("******** Student Number: 122413930100        ********");
             Console.WriteLine();
 

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D64D2272-F16D-4277-9184-E5AEDABCA1BB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Time_Convert_LKY</RootNamespace>
-    <AssemblyName>Time_Convert_LKY</AssemblyName>
+    <RootNamespace>LKY_Time_Convert</RootNamespace>
+    <AssemblyName>LKY_Time_Convert</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

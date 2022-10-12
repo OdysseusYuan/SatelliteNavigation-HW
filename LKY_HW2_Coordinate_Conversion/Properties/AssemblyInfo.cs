@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("刘开元_HW1_122413930100")]
+[assembly: AssemblyTitle("LKY_HW2_Coordinate_Conversion")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("刘开元_HW1_122413930100")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyProduct("LKY_HW2_Coordinate_Conversion")]
+[assembly: AssemblyCopyright("Copyright © liukaiyuan@sjtu.edu.cn 2022.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

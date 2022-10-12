@@ -1,22 +1,22 @@
 ﻿/*
  *      [Principle of Navigation] Copyright (C) 2022 SJTU Inc.
  *      
- *      FileName : Time_Convert_LKY
- *      Developer: liukaiyuan (Odysseus.Yuan)
+ *      FileName : Time_Convert.cs
+ *      Developer: liukaiyuan@sjtu.edu.cn (Odysseus.Yuan)
  */
 
 using System;
 
-namespace Time_Convert_LKY
+namespace LKY_Time_Convert
 {
     internal class Time_Convert
     {
         static void Main(string[] args)
         {
             //欢迎话术
-            Console.WriteLine("******** Homework #1: Time Conversion  ********");
-            Console.WriteLine("******** Developer: Liu Kaiyuan        ********");
-            Console.WriteLine("******** Student Number: 122413930100 ********");
+            Console.WriteLine("******** Homework #1: Time Conversion      ********");
+            Console.WriteLine("******** Developer: liukaiyuan@sjtu.edu.cn ********");
+            Console.WriteLine("******** Student Number: 122413930100      ********");
             Console.WriteLine();
 
             DateTime time_shanghai = new DateTime(2022, 9, 19, 10, 0, 0);
@@ -62,10 +62,11 @@ namespace Time_Convert_LKY
 
             ///转换为 Week Number 和 Seconds Of Week
             TimeSpan Day_Diff = dateTime.Subtract(startTime);      //计算时间差值
-            int Weeks_Diff = Day_Diff.Days / 7 % 1024;             //计算周数差值，并基于1024周清零
-            int Week_Diff_Sec = Day_Diff.Days % 7 * 24 * 3600;     //计算余下天数对应的秒数
+            int Weeks_Diff = (int)Day_Diff.TotalDays / 7 % 1024;     //计算周数差值，并基于1024周清零
 
-            return Weeks_Diff + " weeks, " + Week_Diff_Sec + " s";
+            int WeekOfSec = (int)Day_Diff.TotalSeconds % (7 * 24 * 3600);     //计算 week of seconds
+
+            return Weeks_Diff + " weeks, " + WeekOfSec + " s";
         }
 
         /// <summary>

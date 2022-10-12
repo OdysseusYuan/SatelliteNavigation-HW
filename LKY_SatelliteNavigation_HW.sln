@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LKY_HW1_Time_Convert", "LKY
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LKY_HW2_Coordinate_Conversion", "LKY_HW2_Coordinate_Conversion\LKY_HW2_Coordinate_Conversion.csproj", "{B91BD1BE-1AE2-4372-8CC5-E85773C60DF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LKY_HW3_Calculate_Satellite_Position", "LKY_HW3_Calculate_Satellite_Position\LKY_HW3_Calculate_Satellite_Position.csproj", "{A861E03E-6F80-4A95-98FB-1EA6916FCCB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B91BD1BE-1AE2-4372-8CC5-E85773C60DF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B91BD1BE-1AE2-4372-8CC5-E85773C60DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B91BD1BE-1AE2-4372-8CC5-E85773C60DF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A861E03E-6F80-4A95-98FB-1EA6916FCCB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A861E03E-6F80-4A95-98FB-1EA6916FCCB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A861E03E-6F80-4A95-98FB-1EA6916FCCB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A861E03E-6F80-4A95-98FB-1EA6916FCCB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
