@@ -9,6 +9,7 @@
 using LKY_Calculate_Satellite_Position.Common;
 using LKY_Calculate_Satellite_Position.Lib;
 using System;
+using System.Threading;
 
 namespace LKY_Calculate_Satellite_Position
 {
@@ -29,7 +30,11 @@ namespace LKY_Calculate_Satellite_Position
 
             new Log("※※※ Part1: Using Rinex files calculate.\n", Log.LogType.Welcome, Log.ArrowType.None);
 
-            new lib_OrbitalFormula.ByRinex();
+            //延时下
+            Thread.Sleep(2000);
+
+            //计算卫星位置【Rinex】
+            new lib_OrbitalFormula.ByRinex(1);
 
             //Console.WriteLine("\n※※※ Part2: Using Yuma files calculate.\n");
 

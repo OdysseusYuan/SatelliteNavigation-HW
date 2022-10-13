@@ -150,7 +150,7 @@ namespace LKY_Calculate_Satellite_Position.Lib
                 string Rinex_Filepath = Environment.CurrentDirectory + "\\Attachments\\brdc2750.22n";
                 if (File.Exists(Rinex_Filepath))
                 {
-                    new Log("读取 brdc2750.22n，路径：" + Rinex_Filepath.Replace(Environment.CurrentDirectory, "") + " ......", Log.LogType.Calculate, ArrowType.Full);
+                    new Log("读取 Rinex 文件 brdc2750.22n，路径：" + Rinex_Filepath.Replace(Environment.CurrentDirectory, "") + " ......", Log.LogType.Calculate, ArrowType.Full);
                     string file_info = File.ReadAllText(Rinex_Filepath, Encoding.UTF8);
                     //new Log("读取 brdc2750.22n，" + "完成。");
                     return file_info;
@@ -169,6 +169,8 @@ namespace LKY_Calculate_Satellite_Position.Lib
             private static string Get_Latest_PRN_GlobalInfo(int PRN_Number)
             {
                 string Rinex_Context = Reading();                                       //获取全部Rinex文件内容
+                new Log("读取 Rinex 文件 brdc2750.22n，完成。\n", LogType.Message, ArrowType.Tick);
+
                 int Header_Ending_Index = Rinex_Context.IndexOf("END OF HEADER");       //找到历书头文件截止的位置
                 if (Header_Ending_Index > -1)
                 {
@@ -235,10 +237,11 @@ namespace LKY_Calculate_Satellite_Position.Lib
             public static RinexInfo Get_Latest_PRN_PhyInfo(int PRN_Number)
             {
                 //先获取最新的 PRN 需要序号的矩阵信息。
-                string PRN_Info = Get_Latest_PRN_GlobalInfo(32);
+                string PRN_Info = Get_Latest_PRN_GlobalInfo(PRN_Number);
 
                 string[] prn_info = PRN_Info.Split('\n');   //拆分为每行单独计算
 
+                new Log("解析 Rinex PRN-" + PRN_Number.ToString() + " 数据 ......", Log.LogType.Calculate, ArrowType.Full);
 
                 //赋值拆解的物理量
                 RinexInfo rinex_info;
@@ -339,7 +342,7 @@ namespace LKY_Calculate_Satellite_Position.Lib
                 rinex_info.IDOT = RinexMath2Double(prn_info[5].Substring(3, 19));
                 new Log("获得 轨道倾角变化率IDOT =        " + rinex_info.IDOT.ToString());
 
-                new Log("读取 brdc2750.22n，" + "完成。\n", LogType.Message, ArrowType.Tick);
+                new Log("解析 Rinex PRN-" + PRN_Number.ToString() + " 数据，完成。\n", LogType.Message, ArrowType.Tick);
 
                 return rinex_info;
             }

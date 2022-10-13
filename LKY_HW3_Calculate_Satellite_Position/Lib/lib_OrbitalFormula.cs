@@ -30,14 +30,15 @@ namespace LKY_Calculate_Satellite_Position.Lib
         public class ByRinex
         {
             /// <summary>
-            /// 用重载计算
+            /// 重载，计算Rinex模式下的卫星位置
             /// </summary>
-            public ByRinex()
+            /// <param name="PRN_NO">GPS卫星的编号</param>
+            public ByRinex(int PRN_NO)
             {
                 //先获取 Rinex 信息
-                RinexInfo rinex = IO.Get_Latest_PRN_PhyInfo(32);
+                RinexInfo rinex = IO.Get_Latest_PRN_PhyInfo(PRN_NO);
 
-                new Log("启动 Rinex 模式轨道计算 ......", Log.LogType.Calculate, ArrowType.Full);
+                new Log("启动 计算 Rinex PRN-" + PRN_NO.ToString() + " 卫星轨道信息 ......", Log.LogType.Calculate, ArrowType.Full);
 
                 //计算平均角速度
                 ///计算参考时刻平均角速度
@@ -111,7 +112,7 @@ namespace LKY_Calculate_Satellite_Position.Lib
                 double Y = Rk * Math.Sin(Uk);
                 new Log("轨道坐标(XOY)    = (" + X.ToString() + ", " + Y.ToString() + ")");
 
-                new Log("计算卫星椭圆轨道坐标，完成。\n", LogType.Message, ArrowType.Tick);
+                new Log("计算 Rinex PRN-" + PRN_NO.ToString() + " 卫星椭圆轨道坐标，完成。\n", LogType.Message, ArrowType.Tick);
 
                 //计算发射时刻的升交点经度
                 ///定义地球自转角速度
@@ -124,13 +125,13 @@ namespace LKY_Calculate_Satellite_Position.Lib
                 double Y_ecef = X * Math.Sin(L) + Y * Math.Cos(Ik) * Math.Cos(L);
                 double Z_ecef = Y * Math.Sin(Ik);
                 new Log("轨道坐标(ECEF)    = (" + X_ecef.ToString() + ", " + Y_ecef.ToString() + ", " + Z_ecef.ToString() + ")");
-                new Log("计算卫星ECEF坐标，完成。\n", LogType.Message, ArrowType.Tick);
+                new Log("计算 Rinex PRN-" + PRN_NO.ToString() + " 卫星ECEF坐标，完成。\n", LogType.Message, ArrowType.Tick);
 
                 //计算LLA坐标，用于验证ECEF准确性
                 double[] ECEF = { X_ecef, Y_ecef, Z_ecef };
                 double[] LLA = ECEF2LLA(ECEF);
                 new Log("轨道坐标(LLA)     = (" + LLA[0].ToString() + "°, " + LLA[1].ToString() + "°, " + LLA[2].ToString() + "m)");
-                new Log("计算卫星LLA坐标，完成。\n", LogType.Message, ArrowType.Tick);
+                new Log("计算 Rinex PRN-" + PRN_NO.ToString() + " 卫星LLA坐标，完成。\n", LogType.Message, ArrowType.Tick);
             }
         }
     }
