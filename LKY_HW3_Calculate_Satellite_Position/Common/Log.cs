@@ -130,15 +130,25 @@ namespace LKY_Calculate_Satellite_Position.Common
                 Console.ForegroundColor = ConsoleColor.Gray;
             }
 
-            Console.WriteLine(Arrow + print_info);
+            //获得数据，颜色改变
+            if (print_info.Contains("获得"))
+            {
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            }
 
+            //屏蔽掉获取数据的log
+            //if (!print_info.Contains("获得"))
+            {
+                Console.WriteLine(Arrow + print_info);
+            }
+            
             bool ForDemo = true;
             //预览模式下，增加一个延时效果，方便看数据
             if (ForDemo)
             {
                 if (logType == LogType.Calculate)
                 {
-                    Thread.Sleep(new Random().Next(3000, 4000));
+                    Thread.Sleep(new Random().Next(1000, 3000));
                 }
                 else if (logType == LogType.Display)
                 {

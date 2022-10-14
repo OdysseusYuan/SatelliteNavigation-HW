@@ -36,7 +36,9 @@ namespace LKY_Calculate_Satellite_Position
             //计算卫星位置【Rinex】
             new lib_OrbitalFormula.ByRinex(1);
 
-            //Console.WriteLine("\n※※※ Part2: Using Yuma files calculate.\n");
+            new Log("※※※ Part2: Using Yuma files calculate.\n", Log.LogType.Welcome, Log.ArrowType.None);
+
+            new lib_OrbitalFormula.ByYuma(1);
 
             // -------------- Calculate Satellite Position End --------------
 

@@ -50,6 +50,7 @@
     <Compile Include="Common\Log.cs" />
     <Compile Include="Lib\lib_CoordinateOS.cs" />
     <Compile Include="Lib\lib_OrbitalFormula.cs" />
+    <Compile Include="Lib\lib_YumaOS.cs" />
     <Compile Include="Lib\lib_RinexOS.cs" />
     <Compile Include="Lib\lib_TimeCovert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,6 +62,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Attachments\almanac.yuma.week0182.061440.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="lky_logo.ico" />
   </ItemGroup>
   <ItemGroup />
