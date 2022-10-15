@@ -142,22 +142,27 @@ namespace LKY_Calculate_Satellite_Position.Lib
         public class IO
         {
             /// <summary>
+            /// Rinex 文件名
+            /// </summary>
+            const string Rinex_filename = "brdc2750.22n";       //brdc2750.22n   PRN-11_Rinex_OnlyTest.txt
+
+            /// <summary>
             /// 读取 Rinex 文件
             /// </summary>
             /// <returns></returns>
             private static string Reading()
             {
-                string Rinex_Filepath = Environment.CurrentDirectory + "\\Attachments\\brdc2750.22n";
+                string Rinex_Filepath = Environment.CurrentDirectory + $"\\Attachments\\{Rinex_filename}";
                 if (File.Exists(Rinex_Filepath))
                 {
-                    new Log("读取 Rinex 文件 brdc2750.22n，路径：" + Rinex_Filepath.Replace(Environment.CurrentDirectory, "") + " ......", Log.LogType.Calculate, ArrowType.Full);
+                    new Log($"读取 Rinex 文件 {Rinex_filename}，路径：" + Rinex_Filepath.Replace(Environment.CurrentDirectory, "") + " ......", Log.LogType.Calculate, ArrowType.Full);
                     string file_info = File.ReadAllText(Rinex_Filepath, Encoding.UTF8);
                     //new Log("读取 brdc2750.22n，" + "完成。");
                     return file_info;
                 }
                 else
                 {
-                    new Log("brdc2750.22n 文件不存在，预期路径：" + Rinex_Filepath.Replace(Environment.CurrentDirectory, "") + "，请拷贝对应文件到该路径！", LogType.Error);
+                    new Log($"{Rinex_filename} 文件不存在，预期路径：" + Rinex_Filepath.Replace(Environment.CurrentDirectory, "") + "，请拷贝对应文件到该路径！", LogType.Error);
                     return null;
                 }
             }
@@ -169,12 +174,19 @@ namespace LKY_Calculate_Satellite_Position.Lib
             private static string Get_Latest_PRN_GlobalInfo(int PRN_Number)
             {
                 string Rinex_Context = Reading();                                       //获取全部Rinex文件内容
-                new Log("读取 Rinex 文件 brdc2750.22n，完成。\n", LogType.Message, ArrowType.Tick);
+
+                //文件不存在时，返回
+                if (string.IsNullOrEmpty(Rinex_Context))
+                {
+                    return null;
+                }
+
+                new Log($"读取 Rinex 文件 {Rinex_filename}，完成。\n", LogType.Message, ArrowType.Tick);
 
                 int Header_Ending_Index = Rinex_Context.IndexOf("END OF HEADER");       //找到历书头文件截止的位置
                 if (Header_Ending_Index > -1)
                 {
-                    Rinex_Context = Rinex_Context.Remove(0, Header_Ending_Index + "END OF HEADER       \n".Length);     //获得综合矩阵信息
+                    Rinex_Context = Rinex_Context.Remove(0, Header_Ending_Index + "END OF HEADER       \n".Length + 1);     //获得综合矩阵信息
 
                     //将综合矩阵信息拆分为每行
                     string[] Rinex_Context_Arr = Rinex_Context.Split('\n');
@@ -204,7 +216,7 @@ namespace LKY_Calculate_Satellite_Position.Lib
                 }
                 else
                 {
-                    new Log("brdc2750.22n 文件标头为非标准格式，请使用正确的文件格式！", LogType.Error);
+                    new Log($"{Rinex_filename} 文件标头为非标准格式，请使用正确的文件格式！", LogType.Error);
                     return null;
                 }
             }

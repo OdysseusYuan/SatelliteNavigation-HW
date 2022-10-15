@@ -88,7 +88,7 @@ namespace LKY_Calculate_Satellite_Position.Lib
             /// <summary>
             /// Yuma 文件名
             /// </summary>
-            const string Yuma_filename = "almanac.yuma.week0182.061440.txt";
+            const string Yuma_filename = "almanac.yuma.week0182.061440.txt";        //almanac.yuma.week0182.061440.txt      PRN-11_Yuma_OnlyTest.txt
 
             /// <summary>
             /// 读取 Yuma 文件
@@ -118,6 +118,13 @@ namespace LKY_Calculate_Satellite_Position.Lib
             private static string Get_Latest_PRN_GlobalInfo(int PRN_Number)
             {
                 string Yuma_Context = Reading();                                       //获取全部Yuma文件内容
+
+                //文件不存在时，返回
+                if (string.IsNullOrEmpty(Yuma_Context))
+                {
+                    return null;
+                }
+
                 new Log($"读取 Yuma 文件 {Yuma_filename}，完成。\n", LogType.Message, ArrowType.Tick);
 
                 //判断是否是Yuma标准格式
@@ -238,7 +245,7 @@ namespace LKY_Calculate_Satellite_Position.Lib
                 //历书基准时间（周内秒）
                 yuma_info.week = (int)YumaMath2Double(GetYumaValue("week", PRN_Info));
                 yuma_info.WOS = (int)YumaMath2Double(GetYumaValue("Time of Applicability(s)", PRN_Info));
-                new Log("获得 历书基准时间WO            = " + $"{yuma_info.week.ToString()}w, {yuma_info.WOS.ToString()}s");
+                new Log("获得 历书基准时间WO            = " + $"{yuma_info.week}w, {yuma_info.WOS}s");
 
                 //参考时刻的轨道倾角
                 yuma_info.i0 = YumaMath2Double(GetYumaValue("Orbital Inclination(rad)", PRN_Info));

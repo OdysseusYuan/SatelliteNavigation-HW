@@ -39,7 +39,7 @@ namespace LKY_Calculate_Satellite_Position.Lib
                 //先获取 Rinex 信息
                 RinexInfo rinex = lib_RinexOS.IO.Get_Latest_PRN_PhyInfo(PRN_NO);
 
-                new Log("启动 计算 Rinex PRN-" + PRN_NO.ToString() + " 卫星轨道信息 ......", Log.LogType.Calculate, ArrowType.Full);
+                new Log("计算 Rinex PRN-" + PRN_NO.ToString() + $" 卫星 ({rinex.TOC_GPST[0]}w, {rinex.TOC_GPST[1]}s) 时刻的 轨道信息 ......", Log.LogType.Calculate, ArrowType.Full);
 
                 //计算平均角速度
                 ///计算参考时刻平均角速度
@@ -150,7 +150,7 @@ namespace LKY_Calculate_Satellite_Position.Lib
                 //先获取 Yuma 信息
                 YumaInfo yuma = lib_YumaOS.IO.Get_Latest_PRN_PhyInfo(PRN_NO);
 
-                new Log("启动 计算 Yuma PRN-" + PRN_NO.ToString() + " 卫星轨道信息 ......", Log.LogType.Calculate, ArrowType.Full);
+                new Log("计算 Yuma PRN-" + PRN_NO.ToString() + $" 卫星 ({yuma.week}w, {yuma.WOS}s) 时刻的 卫星轨道信息 ......", Log.LogType.Calculate, ArrowType.Full);
 
                 //计算平均角速度
                 ///计算参考时刻平均角速度

@@ -1,0 +1,14 @@
+******** Week 182 almanac for PRN-11 ********
+ID:                         11
+Health:                     000
+Eccentricity:               0.7572174072E-003
+Time of Applicability(s):  61440.0000
+Orbital Inclination(rad):   0.9641572589
+Rate of Right Ascen(r/s):  -0.8068907531E-008
+SQRT(A)  (m 1/2):           5153.597656
+Right Ascen at Week(rad):   0.2810615326E+000
+Argument of Perigee(rad):  -3.094976266
+Mean Anom(rad):             0.1136034863E+001
+Af0(s):                    -0.2193450928E-004
+Af1(s/s):                  -0.3637978807E-011
+week:                        182

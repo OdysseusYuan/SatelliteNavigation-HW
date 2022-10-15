@@ -65,6 +65,12 @@
     <None Include="Attachments\almanac.yuma.week0182.061440.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Attachments\PRN-11_Rinex_OnlyTest.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Attachments\PRN-11_Yuma_OnlyTest.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="lky_logo.ico" />
   </ItemGroup>
   <ItemGroup />

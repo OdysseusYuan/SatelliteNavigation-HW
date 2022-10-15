@@ -28,7 +28,7 @@ namespace LKY_Calculate_Satellite_Position
             new Log("Demands: Orbit calculation Download the Yuma and Rinex files in the canvas, and " +
                             "calculate satellite PRN 01 's position in both orbital and ECEF coordinates.\n", Log.LogType.Welcome, Log.ArrowType.None);
 
-            new Log("※※※ Part1: Using Rinex files calculate.\n", Log.LogType.Welcome, Log.ArrowType.None);
+            new Log("※※※ Part1, Using Rinex files calculate:\n", Log.LogType.Welcome, Log.ArrowType.None);
 
             //延时下
             Thread.Sleep(2000);
@@ -36,14 +36,29 @@ namespace LKY_Calculate_Satellite_Position
             //计算卫星位置【Rinex】
             new lib_OrbitalFormula.ByRinex(1);
 
-            new Log("※※※ Part2: Using Yuma files calculate.\n", Log.LogType.Welcome, Log.ArrowType.None);
+            new Log("\n※※※ Part2, Using Yuma files calculate:\n", Log.LogType.Welcome, Log.ArrowType.None);
 
+            //计算卫星位置【Yuma】
             new lib_OrbitalFormula.ByYuma(1);
 
             // -------------- Calculate Satellite Position End --------------
 
+            //test_time();
+
             new Log("\n\nDone. 按任意键退出运行。", Log.LogType.Welcome, Log.ArrowType.None);
             Console.ReadKey();
+        }
+
+        /// <summary>
+        /// 仅用于测试
+        /// </summary>
+        private static void test_time()
+        {
+            int yuma_sec = 61440;
+            int rinex_sec = 79200;
+            DateTime rinex_datetime = new DateTime(2022, 10, 02, 22, 00, 00);
+            DateTime yuma_datetime = rinex_datetime.AddSeconds(-1f * (rinex_sec - yuma_sec));
+            new Log(yuma_datetime.ToString());
         }
     }
 
